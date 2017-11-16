@@ -16,22 +16,23 @@ let app = new Moon({
 				this.set("list", data)
 			}
 			// port.postMessage("ping");
+	
 
-
-			browser.tabs.query({active:true,currentWindow:true},function(tabs){
+			browser.tabs.query({active:true, currentWindow:true},function(tabs){
 				for (let tab of tabs) {
 
-					browser.tabs.sendMessage(tab.id, {}).then(recv, err => console.log(err));
+					browser.tabs.sendMessage(tab.id, {type: "get"}).then(recv, err => console.log(err));
 				}
 			});
 		}
 	},
 	methods:{
-		click(item, index){
+		click(item){
 			
 
 			let clip = document.getElementById('clip')
-			browser.runtime.sendNativeMessage("mpv", item).then(e => console.log("res: ", e),e => console.log("err: ", e))
+			browser.runtime.sendNativeMessage("mpv", item)
+				.then(e => console.log("res: ", e), e => console.log("err: ", e))
 			clip.value = item
 			clip.select()
 			document.execCommand("Copy");

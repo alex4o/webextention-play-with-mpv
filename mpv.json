@@ -3,5 +3,5 @@
 	"description": "Launches mpv",
 	"path": "/home/alex4o/.bin/launch_mpv.py",
 	"type": "stdio",
-	"allowed_extensions": [ "mpv@opener.org" ]
+	"allowed_extensions": [ "mpv-play-ext@alex4o.org" ]
 }

@@ -2,15 +2,15 @@
 
 	"applications": {
 		"gecko": {
-			"id": "mpv@opener.org",
+			"id": "mpv-play-ext@alex4o.org",
 			"strict_min_version": "55.0"
 		}
 	},
 	"description": "Finds video src's and sends them to mpv",
 	"manifest_version": 2,
-	"name": "play-mpv",
-	"version": "1.0",
-	"homepage_url": "https://github.com/alex4o/play-mpv",
+	"name": "play-with-mpv",
+	"version": "1.2",
+	"homepage_url": "https://github.com/alex4o/webextention-play-with-mpv",
 
 	"background": {
 		"scripts": ["background.js"]
@@ -25,7 +25,8 @@
 	"content_scripts": [	
 		{
 			"matches": ["http://*/*", "https://*/*"],
-			"js": ["content.js"]
+			"js": ["content.js"],
+			"all_frames": true
 		}
 	],
 
